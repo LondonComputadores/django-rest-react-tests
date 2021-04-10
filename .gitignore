@@ -105,6 +105,7 @@ celerybeat.pid
 .env
 .venv
 .vscode
+node_modules
 env/
 venv/
 ENV/

@@ -1,4 +1,5 @@
 # django-rest-react-tests
+
 Django React project structure with tests
 
 Please read
@@ -20,7 +21,10 @@ a newer version of Node.js installed on your system
 
 - Valentino Gagliardi
 
+
 # Command line inputs:
+
+### back-end:
 
 - $ mkdir django-react && cd $_  # Creates a new folder and moves into it.
 - python -m venv .venv  # Creates a new python virtual environment.
@@ -30,6 +34,27 @@ a newer version of Node.js installed on your system
 - django-admin startproject django_react  # Creates and starts the django_react project.
 - django-admin startapp leads  # Creates and starts the leads app.
 - pip freeze > requirements.txt  # Save the requirements into a .txt file.
+
+### front-end:
+
+- python manage.py startapp frontend  # Creates and starts the frontend app.
+- mkdir -p ./frontend/src/components  # Prepares a directory structure for holding React components...
+- mkdir -p ./frontend/{static,templates}/frontend  # ... and also static files.
+- cd ./frontend && npm init -y  # Moves into the frontend folder and initialize the environment.
+- npm i webpack webpack-cli --save-dev  # Installs webpack and webpack cli, then in package.json:
+
+"scripts": {
+    "dev": "webpack --mode development --entry ./src/index.js --output-path ./static/frontend",
+    "build": "webpack --mode production --entry ./src/index.js --output-path ./static/frontend"
+},
+
+- npm i @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev  # Installs babel for transpiling our code.
+- npm i react react-dom --save-dev  # Pulls in React
+- npm run dev
+
+... and finally and once again:
+- if you're in ./frontend directory: $ python ../manager.py runserver
+
 
 # Testing tips of what to do and also what NOT to do:
 
